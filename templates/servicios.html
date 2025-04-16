@@ -1,0 +1,51 @@
+<section id="servicios" class="section_presentacion">
+    <div class="container-fluid centered-container">
+        <div class="row jf_section_1 d-flex align-items-stretch">
+            <div class="col-md-6 service-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="titulo-servicios"><b>Servicios</b></h2>
+                        <hr class="jf_cont_sec_1_link_servicios hr mx-auto">
+                        <p class="justificado"><b>En Tradicom trabajamos en colaboración directa con nuestros clientes para desarrollar soluciones a medida. Contamos con el respaldo de nuestras representadas, con todo su expertice, equipos y laboratorios ubicados en EEUU y Alemania. Tenemos técnicos especializados en la región y equipamiento propio que nos permite brindar los siguientes servicios:</b></p>
+                        <ul class="justificado">
+                            <li><b>Ensayos de contaminación y arrastre</b></li>
+                            <li><b>Tests de Performance</b></li>
+                            <li><b>Revamp a filtros y coalescedores</b></li>
+                            <li><b>Alquiler de equipos</b></li>
+                            <li><b>Instalación, operación y mantenimiento de las tecnologías que ofrecemos</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 text-center jf_cont_sec_2_link servicios-carousel-container">
+                <!-- Carrusel Servicios -->
+                <div id="carouselServicios" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselServicios" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselServicios" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselServicios" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="carousel-image" src="{{ url_for('static', filename='img/Servicios1.jpg') }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="carousel-image" src="{{ url_for('static', filename='img/Servicios2.jpg') }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="carousel-image" src="{{ url_for('static', filename='img/Servicios3.jpg') }}" alt="Third slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselServicios" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselServicios" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

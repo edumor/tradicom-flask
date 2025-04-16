@@ -1,0 +1,1620 @@
+/* Ajustes generales */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Merriweather:wght@300;400;700;900&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Estilos generales */  
+html, body {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 15px;
+    color: rgb(19, 57, 116);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.bordered-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    width: 100%; 
+}
+
+.container {
+    width: 100%; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-margin {
+    margin-top: 30px;
+    margin-bottom: 30px; 
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+/* Media queries que achican el font de acuerdo al tipo de pantalla*/
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .video-section {
+        margin-top: 20px !important;
+        padding-top: 10px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .video-section {
+        margin-top: 10px !important;
+        padding-top: 5px !important;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 70%;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+
+
+/* Estilos del navbar */
+
+.transparent-navbar {
+    background-color: rgb(242, 243, 242) !important; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: .5px solid rgb(19, 57, 116); 
+}
+
+.navbar-nav .nav-link {
+    color: rgb(19, 57, 116) !important; /* Color permanente */
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgb(0, 0, 1) !important; /* Color al pasar el mouse */
+    background-color: rgba(19, 57, 116, 0.1); /* Fondo al pasar el mouse */
+}
+
+
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.custom-margin {
+    margin: 3px; 
+}
+
+.custom-margin-left {
+    margin-left: 5px; 
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgb(19, 57, 116); /* Oscurecer el color al pasar el mouse */
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
+
+.menu-item {
+    margin-right: 3px;
+}
+
+.navbar-nav .nav-item:first-child {
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: rgb(243, 241, 241);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.custom-hr {
+    border: 0;
+    border-top: 2px solid black;
+    margin: 10px 0;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    margin-top: 0;
+}
+
+/* Estilos para el video inicial con el zoom de vaca muerta */
+
+#video, .video-container, .zoom {
+    margin-top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
+
+#video {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 1;
+    max-width: 100%; /* Asegura que el video no exceda el ancho del contenedor */
+    max-height: 100%; /* Asegura que el video no exceda la altura del contenedor */
+    backface-visibility: hidden;
+    filter: contrast(1.5) brightness(1.2) saturate(1.3) sharpness(1.1);
+}
+
+.video-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#video_inicial {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video ocupe todo el contenedor */
+    transform: none;
+}
+
+.zoom {
+    animation: zoom 8s infinite;
+    transform-origin: center;
+}
+
+.video-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    #video, .video-container, .zoom {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #video {
+        transform: translate(-50%, -50%);
+        position: relative; /* la idea de que el video y container esten en relative para ocupar container */
+        width: 100vw;
+        height: 100vh;
+        z-index: 2; /* Asegúrate de que el video esté en el frente */
+    }
+
+    .video-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden; /* Permite que el contenido se muestre */
+        z-index: 1; /* Asegúrate de que el contenedor esté detrás del video */
+    }
+
+    #video_inicial {
+        width: 100vw;
+        height: 100vh; /* Ocupa todo el largo de la página */
+        position: relative; /* Cambiado a absolute */
+        z-index: 3; /* Asegúrate de que el video inicial esté en el frente */
+    }
+}
+
+/* Atributos de la seccion inicio */
+
+.half-page.bg-cover {
+    background-image: url("/static/img/banner3.jpg");
+    height: 60vh; /* Cambiado de 50vh a 60vh */
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.half-page.white-bg {
+    background-color: white;
+    height: 60vh;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.half-page {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+}
+
+.justificado {
+    text-align: justify;
+}
+
+.margen-superior {
+    margin-top: 60px; 
+}
+
+.margen-izquierdo {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.izquierda {
+    text-align: left;
+}
+
+.blanco {
+    color: white;
+}
+
+.jf_section_1 {
+    padding: 2%;
+}
+
+.half-page.d-flex.align-items-center.justify-content-center.white-bg {
+    padding-top: -1rem; /* Ajusta este valor según sea necesario */
+}
+
+.texto-p {
+    font-size: 2rem; 
+    font-weight: bold;
+    width: calc(100% - 4rem); /* Ajusta el ancho para compensar los márgenes */
+    padding: 0 1rem;
+    margin-left: 2rem; /* Mayor margen izquierdo */
+    margin-right: 2rem; /* Mayor margen derecho */
+    margin-top: -8rem; /* Ajusta este valor según sea necesario para subir el texto */
+    color: rgb(19, 57, 116) !important;
+    text-align: justify;
+}
+
+@media (max-width: 767px) {
+    .half-page {
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    .texto-p {
+        font-size: 4vw; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+        margin-left: 1rem; /* Ajusta el margen izquierdo para pantallas más pequeñas */
+        margin-right: 1rem; /* Ajusta el margen derecho para pantallas más pequeñas */
+        width: calc(100% - 2rem); /* Ajusta el ancho para pantallas más pequeñas */
+        margin-top: -5rem; /* Ajusta este valor según sea necesario para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .texto-p {
+        font-size: 4vw; /* Ajusta el tamaño del texto para pantallas muy pequeñas */
+        margin-left: 0.5rem; /* Ajusta el margen izquierdo para pantallas muy pequeñas */
+        margin-right: 0.5rem; /* Ajusta el margen derecho para pantallas muy pequeñas */
+        width: calc(100% - 1rem); /* Ajusta el ancho para pantallas muy pequeñas */
+        margin-top: -9.8rem; /* Reduce el margen superior */
+    }
+}
+
+/* Atributos de la pagina nosotros  */
+
+.container_nosotros {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    max-width: 100%;
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    width: 55%;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 250px;
+    margin-right: 100px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    display: inline-block;
+    width: 100%; /* Asegura que el título tome todo el ancho del contenedor */
+}
+
+.jf_cont_sec_1_link_nosotros {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    margin: 0; /* Elimina márgenes */
+}
+
+
+.text-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0; /* Elimina el margen inferior del h1 */
+    position: relative; /* Asegura que el h1 sea el contenedor de referencia */
+}
+
+.text-content h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+}
+
+
+.text-content p {
+    font-size: 1rem;
+    margin-top: 15px; /* Añade margen superior al párrafo para separar del hr */
+}
+
+.image-container_nosotros {
+    width: 50%;
+    position: relative;
+    margin-top: 105px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.image-container_nosotros img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.text-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #fff;
+    border-bottom-left-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .container_nosotros {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        width: 90%;
+        margin-top: 40px;
+        order: 2;
+        margin-right: 0;
+    }
+
+    .image-container_nosotros {
+        width: 90%;
+        margin-top: 60px;
+        order: 1;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+    .jf_cont_sec_1_link_nosotros {
+        width: 100%; /* Asegura que el hr tome todo el ancho del contenedor en pantallas pequeñas */
+    }
+
+}
+
+/* Atributos para la pagina clientes */
+
+.section_clientes .container {
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    white-space: nowrap; /* Evita que las filas se rompan */
+}
+
+.section_clientes {
+    text-align: center;
+    padding: 40px 0; /* Reducir el padding */
+}
+
+.titulo-clientes {
+    color: rgb(19, 57, 116);
+    margin-bottom: 5px; /* Reducir el margen inferior */
+    font-size: 2.8em; /* Reducir el tamaño de la fuente */
+}
+
+.jf_cont_sec_1_link_clientes {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 100%;
+    max-width: auto;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden; /* Evitar desbordamientos */
+}
+
+.col-6.col-sm-4.col-md-2.mb-4 img {
+    max-width: 100%;
+    max-height: 80px; /* Ajusta la altura máxima */
+    object-fit: contain;
+}
+
+.row {
+    margin-bottom: 20px; /* Espaciado entre filas */
+}
+
+
+.col-6.col-sm-4.col-md-2.mb-4 img {
+    max-width: 100%;
+    max-height: 80px; /* Reducir la altura de la imagen */
+    object-fit: contain;
+}
+
+.col-6 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1200px) {
+    .col-6 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .col-6 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .titulo-clientes {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .col-6 {
+        flex: 0 0 100%; /* Cada logo ocupa toda la fila */
+        max-width: 100%;
+    }
+
+    .col-6.col-sm-4.col-md-2.mb-4 {
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+
+    .titulo-clientes {
+        font-size: 1.8em;
+    }
+
+    .col-6.col-sm-4.col-md-2.mb-4 {
+        height: 70px; /* Reducir la altura */
+    }
+}
+
+@media (max-width: 1200px) {
+    .jf_cont_sec_1_link_clientes {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 992px) {
+    .jf_cont_sec_1_link_clientes {
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 768px) {
+    .jf_cont_sec_1_link_clientes {
+        max-width: 90%;
+    }
+}
+
+
+
+/* Ajustes para la sección de representación */
+#representacion {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+    justify-content: center; /* Centra las filas verticalmente */
+    align-items: center; /* Centra las filas horizontalmente */
+    width: 100%; /* Asegura que ocupe todo el ancho de la página */
+    padding: 50px 15px; /* Márgenes superior e inferior */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    margin: 0; /* Elimina márgenes superiores e inferiores */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+}
+
+.fila_texto {
+    text-align: center;
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    color: rgb(19, 57, 116);
+    margin-bottom: 40px; /* Espaciado entre el texto y los logos */
+    max-width: 1200px; /* Ancho máximo para el texto */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.fila_logos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los logos se ajusten en varias filas si es necesario */
+    justify-content: space-between; /* Centra los logos horizontalmente */
+    gap: 20px; /* Espaciado entre columnas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    padding: 0 15px;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 calc(25% - 20px);
+    max-width: 200px; /* Ancho máximo de cada columna */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */;
+}
+
+.columna img {
+    width: 100%; 
+    max-width: 150px; /* Asegura que las imágenes no excedan el ancho de la columna */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    margin-bottom: 10px; /* Espaciado entre la imagen y el texto */
+}
+
+.texto-representacion {
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+    color: #333; /* Color del texto */
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .fila_texto {
+        font-size: 1.2rem; /* Reduce el tamaño del texto */
+    }
+
+    .fila_logos {
+        gap: 15px; /* Reduce el espaciado entre columnas */
+    }
+
+    .columna {
+        flex: 1 1 calc(50% - 15px);
+        max-width: 150px; /* Reduce el ancho máximo de las columnas */
+    }
+
+    .columna img {
+        max-width: 120px; /* Ajusta el tamaño máximo de las imágenes */
+    }
+}
+
+@media (max-width: 480px) {
+    .fila_texto {
+        font-size: 1rem; /* Reduce aún más el tamaño del texto */
+    }
+
+    .columna {
+        flex: 1 1 calc(100% - 10px); /* Ajusta las columnas para ocupar el 100% del ancho */
+        max-width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    }
+    
+    .columna img {
+        max-width: 100px; /* Reduce el tamaño de las imágenes */
+    }
+
+    .texto-representacion {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+}
+
+
+/* Atributos para el carrousel de motores y compresores*/
+
+
+.centered-container {
+    margin: 20px auto; 
+    max-width: 1200px; 
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; 
+    box-sizing: border-box;
+    color: rgb(19, 57, 116);
+    overflow: hidden; 
+}
+
+
+.section_presentacion {
+    margin: 20px; 
+   
+}
+
+.small-title {
+    font-size: 1.2em; 
+    font-weight: bold;
+    color: rgb(19, 57, 116);
+}
+
+.center-text {
+    margin-left: 120px;
+}
+
+.reduced {
+    margin-bottom: 1.8em; 
+}
+
+.reduced-spacing {
+    margin-bottom: 0.01px; 
+}
+
+.titulo-motores {
+    color: rgb(19, 57, 116);
+    margin-bottom: 10px;
+    margin-top: 50px; 
+}
+
+.jf_cont_sec_1_link_presentacion {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 65%;
+}
+
+#carouselExampleIndicators {
+    margin-top: 70px; 
+}
+
+.carousel {
+    max-width: 100%; 
+}
+
+.carousel-image {
+    width: 100%;
+    height: 370px; 
+    object-fit: cover;
+    border-radius: 15px; 
+    margin-top: 45px; 
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%; 
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #carouselMotores .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Mantén la misma altura que en pantallas pequeñas */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+
+    .jf_cont_sec_1_link_presentacion {
+        border-bottom: 2px solid rgb(2, 2, 83); 
+        width: 80%; 
+    }
+}
+
+/* Ajustes para el carrusel de motores en pantallas pequeñas */
+@media (max-width: 576px) {
+    #carouselMotores {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 20px; /* Añade espacio superior */
+    }
+
+    #carouselMotores .carousel-image {
+        height: 250px; /* Mantén la altura fija para consistencia */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        border-radius: 10px; /* Aplica bordes redondeados */
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        width: 10%; 
+    }
+
+    body {
+        font-size: 16px; 
+        overflow-x: hidden; 
+        overflow-y: auto; 
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em; 
+        text-align: center; 
+    }
+
+    .section_presentacion {
+        padding: 0 10px; 
+        margin: 10px 0; 
+    }
+
+    .container-fluid {
+        padding: 0; 
+    }
+
+    .centered-container {
+        margin: 5px auto; 
+        padding: 5px; 
+        min-height: 100vh; 
+    }
+
+    .center-text {
+        margin-left: 0; 
+        text-align: center; 
+    }
+
+    .titulo-motores {
+        font-size: 2em; 
+    }
+
+    .small-title {
+        font-size: 1em; 
+    }
+
+    .reduced {
+        margin-bottom: 2px;
+    }
+
+    .reduced-spacing {
+        margin-bottom: 2px; 
+    }
+
+    .service-container {
+        padding: 10px; 
+    }
+
+    .carousel {
+        margin-top: 30px; 
+    }
+
+    .section_presentacion {
+        margin-top: 20px; 
+    }
+
+    .titulo-motores, .small-title, .center-text, .reduced, .reduced-spacing {
+        font-size: 1.4em; 
+    }
+
+    .jf_cont_sec_1_link_presentacion {
+        border-bottom: 1.5px solid rgb(2, 2, 83); 
+        width: 60%; 
+        margin: 0 auto;
+               
+    }
+}
+
+
+
+/* Atributos de la seccion separacion y filtracion */
+#separacion .row {
+    display: flex; /* Asegura que las columnas se alineen horizontalmente */
+    flex-wrap: nowrap; /* Evita que las columnas se apilen verticalmente */
+}
+
+#separacion .row {
+    gap: 15px; /* Ajusta el espacio entre las columnas */
+}
+
+#separacion .container-fluid {
+    max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 0 15px; /* Añade un pequeño padding para evitar que el contenido toque los bordes */
+}
+
+
+.titulo-separacion {
+    color: rgb(19, 57, 116);
+    margin-bottom: 10px;
+    margin-top: 50px; 
+}
+
+
+.jf_cont_sec_1_link_separacion {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 75%;
+}
+
+.separacion-carousel-container {
+    width: 40%; /* Asegura que ocupe todo el ancho de su columna */
+    max-width: 100%; /* Evita que se desborde */
+    text-align: center; /* Centra el contenido dentro de la columna */
+    margin-top: 30px; 
+}
+
+
+/* Para pantallas pequeñas (smartphones) */
+@media (max-width: 576px) {
+    #separacion .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+    
+    #separacion .container-fluid {
+        padding: 10px; 
+    }
+
+    #separacion .titulo-separacion {
+        font-size: 1.5rem; 
+        margin-top: 20px;
+        text-align: center; 
+    }
+
+    #separacion .justificado {
+        font-size: 0.9rem; 
+        text-align: justify; 
+    }
+
+    #separacion .service-container {
+        margin-bottom: 20px; 
+    }
+
+    #separacion .separacion-carousel-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 20px; /* Añade espacio superior */ 
+    }
+
+    #separacion .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Ajusta la altura fija para mantener consistencia */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        border-radius: 10px;
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #separacion .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+
+    #separacion .titulo-separacion {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+        margin-top: 30px; /* Ajusta el margen superior */
+    }
+
+    #separacion .justificado {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+    }
+
+    #separacion .separacion-carousel-container {
+        width: 80%; /* Ajusta el ancho del carrusel */
+        margin: 0 auto; /* Centra el carrusel */
+        margin-top: 20px; /* Añade espacio superior */
+    }
+
+    #separacion .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Mantén la misma altura que en pantallas pequeñas */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+
+}
+
+/* Para pantallas grandes (opcional, si necesitas ajustes adicionales) */
+@media (min-width: 992px) {
+    #separacion .titulo-separacion {
+        font-size: 2rem; /* Aumenta el tamaño del título */
+    }
+
+    #separacion .justificado {
+        font-size: 1.2rem; /* Aumenta el tamaño del texto */
+    }
+
+    #separacion .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 300px; /* Ajusta la altura fija para pantallas grandes */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+    }
+}
+
+
+
+/* Atributos de la sección membranas y adsorción */
+
+#membranas .row {
+    display: flex; /* Asegura que las columnas se alineen horizontalmente */
+    flex-wrap: nowrap; /* Evita que las columnas se apilen verticalmente */
+    gap: 15px; /* Ajusta el espacio entre las columnas */
+}
+
+#membranas .service-container {
+   /* flex: 1;  La columna de texto ocupará proporcionalmente más espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+#membranas .container-fluid {
+    max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 0 15px; /* Añade un pequeño padding para evitar que el contenido toque los bordes */
+}
+
+#membranas .membranas-carousel-container {
+    /*  flex: 1;  La columna del carrusel ocupará proporcionalmente el mismo espacio */
+    max-width: 100%; /* Evita que se desborde */
+    text-align: center; /* Centra el contenido dentro de la columna */
+    margin-top: 30px; 
+}
+
+#membranas .carousel-image {
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+    height: 250px; /* Ajusta la altura fija para mantener consistencia */
+    object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+    border-radius: 10px; /* Aplica bordes redondeados */
+    margin-top: 5px; /* Añade espacio superior entre las imágenes */
+}
+
+
+.titulo-membranas {
+    color: rgb(19, 57, 116);
+    margin-bottom: 10px;
+    margin-top: 50px; 
+}
+
+.jf_cont_sec_1_link_membranas {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 75%;
+}
+
+.membranas-carousel-container {
+    width: 40%; /* Asegura que ocupe todo el ancho de su columna */
+    max-width: 100%; /* Evita que se desborde */
+    text-align: center; /* Centra el contenido dentro de la columna */
+    margin-top: 30px; 
+}
+
+
+
+
+/* Ajustes para pantallas pequeñas (smartphones) */
+@media (max-width: 576px) {
+    #membranas .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+    
+    #membranas .container-fluid {
+        padding: 10px; 
+    }
+
+    #membranas .titulo-separacion {
+        font-size: 1.5rem; 
+        margin-top: 20px;
+        text-align: center; 
+    }
+
+    #membranas .justificado {
+        font-size: 0.9rem; 
+        text-align: justify; 
+    }
+
+    #membranas .service-container {
+        margin-bottom: 20px; 
+    }
+
+    #membranas .separacion-carousel-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 20px; /* Añade espacio superior */ 
+    }
+
+    #membranas .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Ajusta la altura fija para mantener consistencia */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        border-radius: 10px; /* Aplica bordes redondeados */
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #membranas .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+
+    #membranas .titulo-membranas {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+        margin-top: 30px; /* Ajusta el margen superior */
+    }
+
+    #membranas .justificado {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+    }
+
+    #membranas .membranas-carousel-container {
+        width: 80%; /* Ajusta el ancho del carrusel */
+        margin: 0 auto; /* Centra el carrusel */
+        margin-top: 20px; /* Añade espacio superior */
+    }
+
+    #membranas .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Mantén la misma altura que en pantallas pequeñas */
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+}
+
+/* Para pantallas grandes (opcional, si necesitas ajustes adicionales) */
+@media (min-width: 992px) {
+    #membranas .titulo-membranas {
+        font-size: 2rem; /* Aumenta el tamaño del título */
+    }
+
+    #membranas .justificado {
+        font-size: 1.2rem; /* Aumenta el tamaño del texto */
+    }
+
+    #membranas .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 300px; /* Ajusta la altura fija para pantallas grandes */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+    }
+}
+
+
+
+
+/* Atributos de la seccion servicios */
+
+#servicios .row {
+    display: flex; /* Asegura que las columnas se alineen horizontalmente */
+    flex-wrap: nowrap; /* Evita que las columnas se apilen verticalmente */
+    align-items: stretch; /* Asegura que ambas columnas tengan la misma altura */
+}
+
+#servicios .service-container {
+    padding-top: 10px; /* Ajusta el espacio superior */
+    margin-top: -40px; /* Sube la columna izquierda */
+}
+
+#servicios .row {
+    gap: 15px; /* Ajusta el espacio entre las columnas */
+}
+
+#servicios .container-fluid {
+    max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 0 15px; /* Añade un pequeño padding para evitar que el contenido toque los bordes */
+}
+
+#servicios .justificado {
+    font-size: 0.95rem; /* Reduce ligeramente el tamaño del texto */
+    line-height: 1.4; /* Ajusta el interlineado para mayor compacidad */
+    margin-bottom: 10px; /* Reduce el margen inferior */
+}
+
+
+.titulo-servicios {
+    color: rgb(19, 57, 116);
+    margin-bottom: 10px;
+    margin-top: 50px; 
+}
+
+.jf_cont_sec_1_link_servicios {
+    text-decoration: none;
+    border-bottom: 3px solid rgb(2, 2, 83);
+    width: 75%;
+}
+
+#servicios .servicios-carousel-container {
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido interno se alinee verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+}
+
+
+/* Para pantallas pequeñas (smartphones) */
+@media (max-width: 576px) {
+    #servicios .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+    
+    #servicios .container-fluid {
+        padding: 10px; 
+    }
+
+    #servicios .titulo-servicios {
+        font-size: 1.5rem; 
+        margin-top: 20px;
+        text-align: center; 
+    }
+
+    #servicios .justificado {
+        font-size: 0.9rem; 
+        text-align: justify; 
+    }
+
+    #servicios .service-container {
+        margin-bottom: 20px; 
+    }
+
+    #servicios .servicios-carousel-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 20px; /* Añade espacio superior */ 
+    }
+
+    #servicios .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Ajusta la altura fija para mantener consistencia */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        border-radius: 10px;
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #servicios .row {
+        flex-wrap: wrap; /* Permite que las columnas se apilen verticalmente */
+    }
+
+    #servicios .titulo-servicios {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+        margin-top: 30px; /* Ajusta el margen superior */
+    }
+
+    #servicios .justificado {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+    }
+
+    #servicios .servicios-carousel-container {
+        width: 80%; /* Ajusta el ancho del carrusel */
+        margin: 0 auto; /* Centra el carrusel */
+        margin-top: 20px; /* Añade espacio superior */
+    }
+
+    #servicios .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 250px; /* Mantén la misma altura que en pantallas pequeñas */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+        margin-top: 5px; /* Añade espacio superior entre las imágenes */
+    }
+}
+
+/* Para pantallas grandes (opcional, si necesitas ajustes adicionales) */
+@media (min-width: 992px) {
+    #servicios .titulo-servicios {
+        font-size: 2rem; /* Aumenta el tamaño del título */
+    }
+
+    #servicios .justificado {
+        font-size: 1.2rem; /* Aumenta el tamaño del texto */
+    }
+
+    #servicios .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+        height: 300px; /* Ajusta la altura fija para pantallas grandes */
+        object-fit: cover; /* Asegura que las imágenes se ajusten al contenedor */
+    }
+}
+
+
+
+/* Atributos de la seccion contacto */
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.titulo-contacto {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
+.info {
+    color: rgb(2, 2, 83);
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.info2 {
+    color: rgb(2, 2, 83);
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+/* Estilos para el mapa y la información de contacto */
+.section_contactos {
+    margin-top: 80px;
+    margin: 0 auto;
+    max-width: 1200px; 
+}
+
+#contacto .map-responsive {
+    width: 100%;
+    height: 0;
+    top: 5%;
+    padding-bottom: 80%; /* Hacer el iframe un poco más largo */
+    position: relative;
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegurar que los bordes redondeados se apliquen correctamente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Recuadro suave */
+}
+
+#contacto .map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0; /* Eliminar margen izquierdo */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+.btn-wsp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 24px;
+    z-index: 1000;
+    text-align: center;
+    width: 50px; /* Asegúrate de que el ancho sea automático */
+}
+.btn-wsp i {
+    font-size: 24px;
+}
+
+.contact-container {
+    background-color: white;
+    margin-left: 0;
+    padding: 30px;
+   
+}
+
+.intro {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#contacto {
+    padding: 20px;
+}
+
+#contacto .container {
+    max-width: 100%;
+    margin: auto;
+}
+
+#contacto .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#contacto .col-xs-12,
+#contacto .col-sm-6,
+#contacto .col-md-6,
+#contacto .col-lg-6 {
+    flex: 1 1 50%;
+    max-width: 50%;
+    padding: 10px;
+}
+
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Centra el formulario horizontalmente */
+}
+
+#contacto input[type="text"],
+#contacto textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#contacto .enviar {
+    width: 50%;
+    padding: 10px;
+    background-color: #042242;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: auto; /* Centra el botón */
+}
+
+#contacto .enviar:hover {
+    background-color: #072b52;
+}
+
+.body_container {
+    background: #FEFAF6;
+    border-top: 4px solid black;
+    margin: 5.5%;
+    font-family: "Roboto";
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    #contacto .col-xs-12,
+    #contacto .col-sm-6,
+    #contacto .col-md-6,
+    #contacto .col-lg-6 {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+form {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8) !important;
+    max-width: 700px; /* Cambiado de 1050px a 800px */
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Aumentado para un sombreado más visible */
+    border-radius: 5px;
+    margin-left: 0;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #102C57;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    font-size: 20px;
+    color: #333;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #0333;
+}
+
+textarea {
+    min-height: 140px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+#boton {
+    background: #102C57;
+    border-radius: 4px;
+    border: 2px solid #f2f2f2;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Roboto";
+    font-size: 16px;
+    padding: 10px;
+    width: 80%;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.margen-campos {
+    margin-top: 20px;
+}
+
+#messageBox {
+    display: none;
+}
+
+
+#boton:hover {
+    cursor: pointer;
+    background: #303F9F;
+}
+
+@media (min-width: 576px) {
+    #contacto .col-sm-6 {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    #contacto .col-md-6 {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    #contacto .col-lg-6 {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+/* Estilos para el footer */
+
+.footer {
+    background-color: white;
+    color: rgb(2, 2, 83);
+    padding: 20px 0; 
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.container-footer {
+    background-color: rgba(255, 255, 255,0.95)!important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.linea-footer2 {
+    border-top: 3px solid rgb(4, 2, 2); 
+    width: 100%; 
+    padding-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(2, 2, 83);
+}
+
+.menu-footer {
+    color: rgb(2, 2, 83);
+    display: block; /* Asegura que el enlace ocupe todo el ancho del contenedor */
+    padding: 1px 0px; /* Añade espacio vertical entre los enlaces */
+    text-align: left; /* Alinea el texto a la izquierda */
+    white-space: nowrap; /* Evita que las letras se corten */
+}
+
+ul.list-unstyled {
+    padding: 0; /* Elimina el padding del contenedor */
+    margin: 0; /* Elimina el margen del contenedor */
+}
+
+.col-6 ul {
+    margin-bottom: 10px; /* Añade espacio entre las columnas */
+}
+
+
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 576px) {
+    .footer {
+        padding: 50px 0; /* Ajusta el valor según sea necesario */
+        text-align:justify !important;
+    }
+
+   
+}
+
+@media (max-width: 576px) {
+    .logo-text-container {
+      margin-bottom: 20px; /* Ajusta este valor según sea necesario */
+    }
+  }
+

@@ -1,0 +1,42 @@
+<section id="membranas" class="section_presentacion">
+    <div class="container-fluid centered-container">
+        <div class="row jf_section_1 d-flex align-items-stretch">
+            <div class="col-md-6 service-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="titulo-membranas"><b>Membranas y Adsorción</b></h2>
+                        <hr class="jf_cont_sec_1_link_membranas hr mx-auto">
+                        <p class="justificado"><b>En Tradicom, en alianza con Linde, nos especializamos en soluciones de purificación de gases que optimizan procesos industriales críticos. 
+                            Utilizamos tecnologías avanzadas como membranas y sistemas de adsorción PSA y TSA para garantizar una separación eficiente y confiable, adaptada a las necesidades de la industria del petróleo, gas y otros sectores.
+                            Nuestro compromiso es maximizar la eficiencia operativa de nuestros clientes, asegurando resultados de alta calidad en cada proyecto.</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 text-center jf_cont_sec_2_link membranas-carousel-container">
+                <!-- Carrusel Membranas y Adsorción -->
+                <div id="carouselMembranas" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselMembranas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselMembranas" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="carousel-image" src="{{ url_for('static', filename='img/Membranas1.jpg') }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="carousel-image" src="{{ url_for('static', filename='img/Menbranas2.png') }}" alt="Second slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMembranas" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselMembranas" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>        
+    </div>   
+</section>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'head.html' %}
+    </head>
+    <body>
+         <!--  Patalla de la barra de navegacion -->
+        <header>
+            {% include 'navbar.html' %}
+        </header>
+
+        <!-- Pantalla Video inicial -->
+
+        <section id="video" class="px-sm-3">
+            <div class="col-12 video-container bordered-section container-fluid zoom">
+                <video id="video_inicial" src="/static/img/Video Vaca Muerta.mp4" autoplay loop muted></video>
+            </div>
+        </section>
+            
+        
+      <!--  Patalla de inicio -->
+             {% include 'inicio.html' %}
+      <!--  Desarrollo de la pagina quienes somos -->
+             {% include 'nosotros.html' %}
+      <!--  Desarrollo de la pagina de Clientes  -->
+             {% include 'galeria.html' %}     
+      <!-- Desarrollo de la pagina Representacion  -->
+             {% include 'representacion.html' %}                  
+      <!-- Desarrollo de la pagina de motores y compresores  -->
+             {% include 'motores.html' %}      
+      <!-- Desarrollo de la pagina de separacion y filtracion -->
+             {% include 'separacion.html' %} 
+      <!-- Desarrollo de la página de Membranas y Adsorción -->
+             {% include 'membranas.html' %}    
+      <!-- Desarrollo de la página de Servicios -->
+             {% include 'servicios.html' %}   
+      <!-- Desarrollo de la pagina de Contactos -->
+             {% include 'contacto.html' %}
+
+             {% if request.args.get('message') %}
+                     <div id="messageBox" style="margin-top: 260px; color: rgb(19, 57, 116);">
+                     {{ request.args.get('message') }}
+                     </div>
+              {% endif %}
+      <!-- Desarrollo de la pagina Footer -->
+             {% include 'footer.html' %}
+        
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/js/index.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+    </body>
+</html>
