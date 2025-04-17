@@ -1526,6 +1526,7 @@ textarea {
 }
 
 /* Estilos para el cuadro de mensaje */
+
 #messageBox {
     display: none; /* Ocultar el cuadro de mensaje por defecto */
     position: fixed;
@@ -1534,42 +1535,32 @@ textarea {
     transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid #ccc;
+    border-radius: 10px; /* Bordes redondeados */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    text-align: center; /* Centrar el contenido */
 }
 
-.message-content {
-    background-color: white;
-    border: 2px solid rgb(19, 57, 116);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    max-width: 90%;
-    width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.message-content p {
+#messageBox p {
     color: rgb(19, 57, 116);
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-.close-btn {
-    background-color: rgb(19, 57, 116);
+#messageBox button {
+    background-color: rgb(19, 57, 116); /* Color del botón */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Bordes redondeados */
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
 }
 
-.close-btn:hover {
-    background-color: rgb(15, 45, 90);
+#messageBox button:hover {
+    background-color: rgb(15, 45, 90); /* Color al pasar el mouse */
 }
-
 
 @media (min-width: 576px) {
     #contacto .col-sm-6 {
