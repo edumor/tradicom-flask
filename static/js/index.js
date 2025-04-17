@@ -30,9 +30,18 @@ document.getElementById('contactForm').addEventListener('submit', async function
     });
 
     const result = await response.json();
-    if (response.ok && result.redirect) {
-        window.location.href = result.redirect; // Redirige con el mensaje
+    const messageBox = document.getElementById('messageBox');
+    const messageContent = document.getElementById('messageContent');
+
+    if (response.ok) {
+        messageContent.textContent = result.message; // Mensaje de éxito
     } else {
-        alert(result.message); // Muestra el error si ocurre
+        messageContent.textContent = result.message || 'Ocurrió un error al enviar el formulario.'; // Mensaje de error
     }
+
+    messageBox.style.display = 'flex'; // Mostrar el cuadro de mensaje
 });
+
+function closeMessageBox() {
+    document.getElementById('messageBox').style.display = 'none'; // Ocultar el cuadro de mensaje
+}

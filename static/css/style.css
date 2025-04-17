@@ -1525,15 +1525,52 @@ textarea {
     margin-top: 20px;
 }
 
+/* Estilos para el cuadro de mensaje */
 #messageBox {
-    display: none;
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.message-content {
+    background-color: white;
+    border: 2px solid rgb(19, 57, 116);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-#boton:hover {
+.message-content p {
+    color: rgb(19, 57, 116);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background-color: rgb(19, 57, 116);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    background: #303F9F;
+    font-size: 16px;
 }
+
+.close-btn:hover {
+    background-color: rgb(15, 45, 90);
+}
+
 
 @media (min-width: 576px) {
     #contacto .col-sm-6 {
