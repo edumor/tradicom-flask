@@ -10,7 +10,7 @@ from threading import Thread
 load_dotenv()
 
 # Configuración del servidor SMTP
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')  # Cambiado para Gmail
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'mail.tradicom.com.ar')  
 EMAIL_HOST_USER = os.getenv('USER')
 EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))  # Cambiado a 587 para TLS
