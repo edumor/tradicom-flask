@@ -6,14 +6,14 @@ import os
 from threading import Thread
 
 
-# Recuperar las variables de entorno
+# Cargar las variables de entorno
 load_dotenv()
 
-# Debugging: Print environment variables
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'mail.tradicom.com.ar')
+# Configuración del servidor SMTP
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')  # Cambiado para Gmail
 EMAIL_HOST_USER = os.getenv('USER')
 EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 465))
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))  # Cambiado a 587 para TLS
 EMAIL_DESTINATARIO = os.getenv('DESTINATARIO')
 EMAIL_DESTINATARIO_CC = os.getenv('DESTINATARIO_CC')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'true').lower() == 'true'
@@ -30,13 +30,14 @@ def send_async_email(app, msg, remitente, destinatarios, password):
         try:
             server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
             if EMAIL_USE_TLS:
-                server.starttls()
+                server.starttls()  # Inicia TLS
             server.login(remitente, password)
             server.send_message(msg)
             server.quit()
             print(f"Correo enviado a: {destinatarios}")
         except Exception as e:
             print(f"Error al enviar el correo: {str(e)}")
+            raise  # Re-lanza el error para que se registre en los logs
 
 @app.route('/send_email', methods=['POST'])
 def send_email():
@@ -47,22 +48,22 @@ def send_email():
     telefono = request.form.get('telefono')
     mensaje = request.form.get('mensaje')
 
-    # chequea que existan todos los campos del formulario que son obligatorios
+    # Validar campos obligatorios
     if not all([nombre, email, telefono, mensaje]):
-       return jsonify({"message": "Campos Obligatorios no ingresados."}), 400
+        return jsonify({"message": "Campos Obligatorios no ingresados."}), 400
 
-    # SMTP configuracion del servidor
+    # Configuración del remitente y destinatarios
     remitente = EMAIL_HOST_USER
     password = EMAIL_HOST_PASSWORD
     destinatario = EMAIL_DESTINATARIO
-    destinatario_cc = EMAIL_DESTINATARIO_CC  # Puede ser opcional
+    destinatario_cc = EMAIL_DESTINATARIO_CC
     asunto = EMAIL_ASUNTO
 
-    # chequea que exista la configuración del servidor SMTP
+    # Validar configuración SMTP
     if not remitente or not password:
         return jsonify({"message": "Error en la configuración del servidor SMTP."}), 500
 
-    # Gererar el cuerpo del mensaje
+    # Crear el mensaje
     msg = EmailMessage()
     msg['From'] = remitente
     msg['To'] = destinatario
@@ -86,7 +87,6 @@ def send_email():
     # Enviar el correo de manera asíncrona
     Thread(target=send_async_email, args=(app, msg, remitente, destinatarios, password)).start()
     return jsonify({"message": "Gracias por ponerse en contacto con Tradicom S.A. nos comunicaremos con ud. a la brevedad"}), 200
-
 
 if __name__ == '__main__':
     app.run(debug=True)
