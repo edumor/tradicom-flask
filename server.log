@@ -1,0 +1,14 @@
+EMAIL_HOST: mail.tradicom.com.ar
+EMAIL_PORT: 465
+EMAIL_HOST_USER: noresponder@tradicom.com.ar
+EMAIL_DESTINATARIO: eduardomoreno2503@outlook.com.ar
+EMAIL_DESTINATARIO_CC: emoreno@microbellsa.com.ar
+EMAIL_ASUNTO: Formulario de contacto
+EMAIL_HOST: mail.tradicom.com.ar
+EMAIL_PORT: 465
+EMAIL_HOST_USER: noresponder@tradicom.com.ar
+EMAIL_DESTINATARIO: eduardomoreno2503@outlook.com.ar
+EMAIL_DESTINATARIO_CC: emoreno@microbellsa.com.ar
+EMAIL_ASUNTO: Formulario de contacto
+Conexión exitosa al servidor SMTP mail.tradicom.com.ar en el puerto 465
+Correo enviado a: eduardomoreno2503@outlook.com.ar
