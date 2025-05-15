@@ -6,6 +6,7 @@ import os
 from threading import Thread
 import uuid
 import re
+from datetime import datetime
 
 # Cargar las variables de entorno
 load_dotenv()
@@ -41,9 +42,12 @@ def send_async_email(app, msg, remitente, password):
             server.send_message(msg)
 
             # Registrar conexión exitosa
+            now = datetime.now()  # Obtener la fecha y hora actual
+            timestamp = now.strftime('%Y-%m-%d %H:%M:%S')  # Formatear la fecha y hora
             with open(os.path.join(log_file_path, 'server.log'), 'a') as server_log:
-                server_log.write(f"[INFO] Conexión SSL exitosa al servidor SMTP {EMAIL_HOST} en el puerto {EMAIL_PORT}\n")
-                server_log.write(f"[INFO] Correo enviado a: {msg['To']}\n")
+                server_log.write(f"[INFO] {timestamp} - Conexión SSL exitosa al servidor SMTP {EMAIL_HOST} en el puerto {EMAIL_PORT}\n")
+                server_log.write(f"[INFO] {timestamp} - Correo enviado a: {msg['To']}\n")
+                server_log.write(f"[INFO] {timestamp} - Email ingresado en la ficha de contacto: {msg['Reply-To']}\n")
         except smtplib.SMTPException as e:
             # Registrar errores específicos de SMTP
             with open(os.path.join(log_file_path, 'error.log'), 'a') as error_log:
@@ -117,7 +121,6 @@ def send_email():
     # Enviar el correo de forma asíncrona
     Thread(target=send_async_email, args=(app, msg, remitente, password)).start()
     return jsonify({"message": "Gracias por ponerse en contacto con Tradicom S.A. Nos comunicaremos con usted a la brevedad."}), 200
-
     
 if __name__ == '__main__':
     app.run(debug=False)
