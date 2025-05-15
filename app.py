@@ -117,6 +117,7 @@ def send_email():
     # Enviar el correo de forma asíncrona
     Thread(target=send_async_email, args=(app, msg, remitente, password)).start()
     return jsonify({"message": "Gracias por ponerse en contacto con Tradicom S.A. Nos comunicaremos con usted a la brevedad."}), 200
+
     
 if __name__ == '__main__':
     app.run(debug=False)
