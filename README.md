@@ -123,5 +123,6 @@ Deployment is performed using Flask's production-ready configuration. The app is
 
 ## Contact
 
-For more information, visit [Tradicom S.A.](https://www.tradicom.com.ar) or contact Lic. Eduardo Moreno -  +54 1168560011.
+For more information, visit [Tradicom S.A.](https://www.tradicom.com.ar) or contact Lic. Eduardo Moreno  +54 1168560011. mail: eduardomoreno2503@gmail.com
+
 
