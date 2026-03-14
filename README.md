@@ -1,128 +1,142 @@
-﻿
+# Tradicom S.A. — Production Web Application
 
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-3.1-000000?style=flat&logo=flask)](https://flask.palletsprojects.com)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=flat&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![Live](https://img.shields.io/badge/Live-tradicom.com.ar-28a745?style=flat&logo=firefox&logoColor=white)](https://www.tradicom.com.ar)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
 
-# Pagina Web Tradicom S.A.
+Production web application for Tradicom S.A. — an industrial equipment company specializing in separation, filtration, membrane systems, motors, and compressors for the Argentine market.
 
-## Project Structure
+**Live site:** [https://www.tradicom.com.ar](https://www.tradicom.com.ar)
 
-```
-tradicom-flask/
-│   app.py
-│   requirements.txt
-│   README.md
-│   server.log
-│   .env
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── index.js
-│   └── img/
-│       ├── [various images, icons, and videos]
-│       └── iconos/
-│           ├── [favicon and app icons]
-│
-├── templates/
-│   ├── index.html
-│   ├── head.html
-│   ├── navbar.html
-│   ├── footer.html
-│   ├── contacto.html
-│   ├── galeria.html
-│   ├── inicio.html
-│   ├── membranas.html
-│   ├── motores.html
-│   ├── nosotros.html
-│   ├── representacion.html
-│   ├── separacion.html
-│   └── servicios.html
-│
-├── .venv/           # Python virtual environment (not included in repo)
-└── __pycache__/     # Python cache files
-```
+> **This is the production Flask version.** The original static HTML/CSS/JS prototype is at [edumor/tradicom](https://github.com/edumor/tradicom).
 
-
-## Overview
-
-This project is a modern, responsive web application for Tradicom S.A., designed to showcase the company's services, products, and contact information. The application is built using Python and Flask, with a strong focus on user experience, visual appeal, and robust backend functionality.
+---
 
 ## Features
 
-- Responsive multi-section website (Home, About Us, Clients, Representation, Motors & Compressors, Separation & Filtration, Membranes & Adsorption, Services, Contact)
-- Video background and animated sections for a modern look
-- Contact form with email sending (SMTP, asynchronous, with validation and logging)
-- Google Maps integration for office locations
+- Multi-section responsive website — Home, About, Clients, Representation, Motors & Compressors, Separation & Filtration, Membranes & Adsorption, Services, Contact
+- Contact form with SMTP email sending (asynchronous via Python threading)
+- Both client-side (JavaScript) and server-side (Python/regex) form validation
+- Server and error logging to `server.log` and `error.log`
+- Google Maps embed for office location
 - WhatsApp direct contact button
-- Dynamic navigation bar and footer
-- Carousel and gallery for client and product images
-- Custom CSS for branding and mobile optimization
-- Error and server logging for traceability
-- Deployed as a web application ([see deployment](#deployment))
+- Video background and animated sections
+- Image carousel and client gallery
+- Mobile-first responsive design with custom CSS
 
-## Tools & Technologies
+---
 
-- 🐍 **Python 3.12**
-- ⚗️ **Flask 3.1**: Web framework for routing, templating, and backend logic
-- 🧩 **Jinja2**: HTML templating engine
-- 🎨 **Bootstrap 5.3**: Responsive design and UI components
-- ⭐ **Font Awesome**: Iconography
-- 📜 **JavaScript (ES6)**: Frontend interactivity (carousel, smooth scroll, AJAX form submission)
-- 🖥️ **HTML5 & CSS3**: Custom styles and layout
-- 🔤 **Google Fonts**: Typography
-- 🗺️ **Google Maps Embed**: Location display
-- 🔄 **Threading**: Asynchronous email sending
-- �️ **dotenv**: Environment variable management
+## Tech stack
 
-## Python Libraries Used
+| Layer | Technology |
+|---|---|
+| Backend | Python 3.12 · Flask 3.1 · Jinja2 |
+| Frontend | HTML5 · CSS3 · Bootstrap 5.3 · JavaScript ES6 |
+| Email | SMTP · Python `threading` (async sending) |
+| Maps | Google Maps Embed API |
+| Icons | Font Awesome · Google Fonts |
+| Config | python-dotenv · `.env` files |
+| Deployment | WSGI-compatible server (Gunicorn/uWSGI) |
 
-All dependencies are listed in `requirements.txt`:
+---
+
+## Project structure
 
 ```
-🔔 blinker
-🖱️ click
-🎨 colorama
-⚗️ Flask
-🛡️ itsdangerous
-🧩 Jinja2
-🛡️ MarkupSafe
-�️ python-dotenv
-🛠️ Werkzeug
+tradicom-flask/
+├── app.py                  # Main Flask application
+├── requirements.txt        # Python dependencies
+├── .env                    # Environment variables (not committed)
+├── static/
+│   ├── css/style.css
+│   ├── js/index.js
+│   └── img/                # Images, icons, videos
+└── templates/
+    ├── index.html
+    ├── head.html
+    ├── navbar.html
+    ├── footer.html
+    ├── contacto.html
+    ├── galeria.html
+    ├── inicio.html
+    ├── membranas.html
+    ├── motores.html
+    ├── nosotros.html
+    ├── representacion.html
+    ├── separacion.html
+    └── servicios.html
 ```
 
-## Notable Implementation Details
+---
 
-- 🔄 **Asynchronous Email Sending**: Uses Python's `threading.Thread` to send emails without blocking the main server process.
-- ✅ **Robust Form Validation**: Both client-side (JavaScript) and server-side (Python, regex) validation for contact forms.
-- 📝 **Logging**: All email activity and errors are logged to `server.log` and `error.log` for traceability.
-- 🔐 **Environment Variables**: Sensitive configuration (SMTP credentials, log paths) is managed via `.env` files and `python-dotenv`.
-- 🧩 **Modular Templates**: Uses Jinja2 includes for reusable HTML components (navbar, footer, sections).
-- 📱 **Mobile-First Design**: Extensive CSS media queries for optimal display on all devices.
-- 🎬 **Rich Media**: Video backgrounds, image carousels, and icon sets for a professional appearance.
+## Notable implementation details
 
-## Deployment
+- **Async email** — uses `threading.Thread` to send contact form emails without blocking the server
+- **Dual validation** — client-side JavaScript + server-side Python/regex on all form inputs
+- **Modular templates** — Jinja2 `include` for reusable navbar, footer, and section components
+- **Logging** — all email activity and errors logged for traceability
+- **Secure config** — SMTP credentials and sensitive paths managed via `.env` and `python-dotenv`
 
-> 🚀 **The web application is deployed and accessible online at [https://www.tradicom.com.ar](https://www.tradicom.com.ar).**
+---
 
-Deployment is performed using Flask's production-ready configuration. The app is ready for deployment on any WSGI-compatible server (e.g., Gunicorn, uWSGI) or cloud platform. Static assets are served efficiently, and all environment variables are managed securely.
+## Running locally
 
-## How to Run Locally
+```bash
+# 1. Clone the repository
+git clone https://github.com/edumor/tradicom-flask.git
+cd tradicom-flask
 
-1. 📥 Clone the repository.
-2. 🐍 Create a virtual environment and activate it.
-3. 📦 Install dependencies:
-	```
-	pip install -r requirements.txt
-	```
-4. ⚙️ Set up a `.env` file with the required SMTP and configuration variables.
-5. ▶️ Run the application:
-	```
-	python app.py
-	```
-6. 🌍 Open your browser at `http://localhost:5000` (or visit the production site at https://www.tradicom.com.ar)
+# 2. Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-## Contact
+# 3. Install dependencies
+pip install -r requirements.txt
 
-For more information, visit [Tradicom S.A.](https://www.tradicom.com.ar) or contact Lic. Eduardo Moreno  +54 1168560011. mail: eduardomoreno2503@gmail.com
+# 4. Set up environment variables
+cp .env.example .env
+# Edit .env with your SMTP credentials
 
+# 5. Run the application
+python app.py
+```
 
+Open [http://localhost:5000](http://localhost:5000) in your browser.
+
+---
+
+## Dependencies
+
+```
+Flask
+Jinja2
+Werkzeug
+python-dotenv
+blinker
+click
+colorama
+itsdangerous
+MarkupSafe
+```
+
+---
+
+## Related repository
+
+| Repo | Description |
+|---|---|
+| [`tradicom`](https://github.com/edumor/tradicom) | Original static HTML/CSS/JS prototype |
+| [`tradicom-flask`](https://github.com/edumor/tradicom-flask) | This repo — production Flask application |
+
+---
+
+## Author
+
+**Eduardo Moreno** — Senior Software Developer · Full Stack & Backend Python
+
+- GitHub: [@edumor](https://github.com/edumor)
+- LinkedIn: [linkedin.com/in/eduardomoreno-15813b19b](https://linkedin.com/in/eduardomoreno-15813b19b)
+- Email: [eduardomoreno2503@gmail.com](mailto:eduardomoreno2503@gmail.com)
+- Live project: [https://www.tradicom.com.ar](https://www.tradicom.com.ar)
